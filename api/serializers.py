@@ -4,9 +4,10 @@ from api.models import *
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'password', 'email', 'number')
+        fields = ('url', 'id', 'username', 'password', 'email', 'number', 'user_type')
 
 
 class SensorSerializer(serializers.ModelSerializer):
@@ -18,4 +19,4 @@ class SensorSerializer(serializers.ModelSerializer):
 class TerritorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Territory
-        fields = ('url', 'id', 'square', 'sensor')
+        fields = ('url', 'id', 'square', 'sensor', 'user')

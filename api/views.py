@@ -19,21 +19,19 @@ class UserViewSet(viewsets.ModelViewSet):
 class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
+    #
+    # def perform_create(self, serializer):
+    #     serializer.save(owner=self.request.user)
 
 
 class TerritoryViewSet(viewsets.ModelViewSet):
     queryset = Territory.objects.all()
     serializer_class = TerritorySerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly,)
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
+    #
+    # def perform_create(self, serializer):
+    #     serializer.save(owner=self.request.user)
 
 
 @api_view(['GET'])
